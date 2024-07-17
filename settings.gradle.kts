@@ -19,5 +19,9 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "Sojourn"
 include(":app")
+include(":common:feature:theme")
+include(":common:feature:composable")
