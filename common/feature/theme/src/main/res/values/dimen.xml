@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Border -->
+    <dimen name="border_unselected">1dp</dimen>
+    <dimen name="border_selected">2dp</dimen>
+
     <!-- Padding -->
     <dimen name="padding_none">0dp</dimen>
     <dimen name="padding_small">8dp</dimen>
@@ -7,6 +11,10 @@
 
     <!-- Space -->
     <dimen name="space_none">0dp</dimen>
+    <dimen name="space_extra_small">2dp</dimen>
     <dimen name="space_small">8dp</dimen>
     <dimen name="space_medium">16dp</dimen>
+
+    <!-- Height -->
+    <dimen name="height_medium">48dp</dimen>
 </resources>
