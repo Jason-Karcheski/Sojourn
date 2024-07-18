@@ -20,8 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sojourn.common.feature.annotation.ComponentPreview
 import com.sojourn.common.feature.extension.spacedBySmall
 import com.sojourn.common.feature.theme.R
 import com.sojourn.common.feature.theme.SojournTheme
@@ -122,11 +122,11 @@ fun SojournTopBar(
 
 }
 
-@Preview
+@ComponentPreview
 @Composable
 private fun SojournTopBarExpandedPreview() {
     SojournTheme {
-        Surface {
+        Surface(color = MaterialTheme.sojournColors.background) {
             SojournTopBar(
                 title = "Expanded Title",
                 subtitle = "Expanded Subtitle",
@@ -136,11 +136,11 @@ private fun SojournTopBarExpandedPreview() {
     }
 }
 
-@Preview
+@ComponentPreview
 @Composable
 private fun SojournTopBarCollapsedPreview() {
     SojournTheme {
-        Surface {
+        Surface(color = MaterialTheme.sojournColors.background) {
             SojournTopBar(
                 title = "Collapsed Title",
                 subtitle = "Collapsed Subtitle"

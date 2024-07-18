@@ -29,7 +29,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.tooling.preview.Preview
+import com.sojourn.common.feature.annotation.ComponentPreview
 import com.sojourn.common.feature.theme.R
 import com.sojourn.common.feature.theme.SojournTheme
 import com.sojourn.common.feature.theme.sojournColors
@@ -120,11 +120,11 @@ fun SojournTextField(
     )
 }
 
-@Preview
+@ComponentPreview
 @Composable
 private fun SojournTextFieldWithContentPreview() {
     SojournTheme {
-        Surface {
+        Surface(color = MaterialTheme.sojournColors.background) {
             SojournTextField(
                 value = "Preview Text Field",
                 placeholder = "Preview Placeholder",
@@ -134,11 +134,11 @@ private fun SojournTextFieldWithContentPreview() {
     }
 }
 
-@Preview
+@ComponentPreview
 @Composable
 private fun SojournTextFieldWithoutContentPreview() {
     SojournTheme {
-        Surface {
+        Surface(color = MaterialTheme.sojournColors.background) {
             SojournTextField(
                 value = "",
                 placeholder = "Preview Placeholder",

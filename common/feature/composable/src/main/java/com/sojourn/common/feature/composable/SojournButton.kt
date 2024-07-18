@@ -12,7 +12,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import com.sojourn.common.feature.annotation.ComponentPreview
 import com.sojourn.common.feature.theme.R
 import com.sojourn.common.feature.theme.SojournTheme
 import com.sojourn.common.feature.theme.sojournColors
@@ -69,7 +69,7 @@ sealed interface ButtonType {
     data object Secondary: ButtonType
 }
 
-@Preview
+@ComponentPreview
 @Composable
 private fun PrimaryButtonPreview() {
     SojournTheme {
@@ -77,7 +77,7 @@ private fun PrimaryButtonPreview() {
     }
 }
 
-@Preview
+@ComponentPreview
 @Composable
 private fun SecondaryButtonPreview() {
     SojournTheme {
