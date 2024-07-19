@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sojourn"
+    namespace = "com.sojourn.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sojourn"
+        applicationId = "com.sojourn.app"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -23,10 +23,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {

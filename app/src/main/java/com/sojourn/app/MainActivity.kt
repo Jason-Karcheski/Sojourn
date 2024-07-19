@@ -1,4 +1,4 @@
-package com.sojourn
+package com.sojourn.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
