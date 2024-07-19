@@ -1,11 +1,14 @@
 package com.sojourn.common.feature.composable
 
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import com.sojourn.common.feature.annotation.ComponentPreview
 import com.sojourn.common.feature.theme.SojournTheme
 import com.sojourn.common.feature.theme.sojournColors
@@ -13,16 +16,20 @@ import com.sojourn.common.feature.theme.sojournColors
 /**
  * Provides a section header composable using the Sojourn Design System.
  *
+ * @param modifier An optional [Modifier] value.
  * @param text The [String] the header should show.
  */
-fun LazyListScope.sectionHeader(text: String) {
-    item {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.sojournColors.onBackgroundVariant
-        )
-    }
+@Composable
+fun LazyItemScope.sectionHeader(
+    modifier: Modifier = Modifier,
+    text: String
+) {
+    Text(
+        modifier = modifier.semantics { contentDescription = "List section header" },
+        text = text,
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.sojournColors.onBackgroundVariant
+    )
 }
 
 @ComponentPreview
@@ -31,7 +38,9 @@ private fun SojournListSectionHeaderPreview() {
     SojournTheme {
         Surface(color = MaterialTheme.sojournColors.background) {
             LazyColumn {
-                sectionHeader(text = "List Section Header Preview")
+                item {
+                    sectionHeader(text = "List Section Header Preview")
+                }
             }
         }
     }

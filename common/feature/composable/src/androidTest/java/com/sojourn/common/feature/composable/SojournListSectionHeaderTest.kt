@@ -26,7 +26,9 @@ class SojournListSectionHeaderTest {
     private fun ComposeContentTestRule.setContent(text: String = VALUE_TEXT) {
         this.setContent {
             LazyColumn {
-                sectionHeader(text = text)
+                item {
+                    sectionHeader(text = text)
+                }
             }
         }
     }

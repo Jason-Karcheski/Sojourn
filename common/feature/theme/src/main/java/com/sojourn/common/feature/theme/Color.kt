@@ -21,7 +21,7 @@ internal val LightColorScheme = SojournColors(
         onPrimary = Color(0xFF191E1A),
         background = Color(0xFFFFFFFF),
         onBackground = Color(0xFF191E1A),
-        surface = Color(0xFFE6F1EC),
+        surface = Color(0xFFE0F6ED),
         onSurface = Color(0xFF191E1A)
     ),
     onBackgroundVariant = Color(0xFF808080)

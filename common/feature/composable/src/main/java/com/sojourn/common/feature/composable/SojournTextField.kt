@@ -75,7 +75,7 @@ fun SojournTextField(
             Box(
                 modifier = Modifier
                     .border(
-                        width = if (isFocused) dimensionResource(R.dimen.border_selected) else dimensionResource(R.dimen.border_unselected),
+                        width = if (isFocused) dimensionResource(R.dimen.stroke_selected) else dimensionResource(R.dimen.stroke_unselected),
                         color = if (isFocused) MaterialTheme.sojournColors.primary else MaterialTheme.sojournColors.onBackground,
                         shape = MaterialTheme.shapes.small
                     )

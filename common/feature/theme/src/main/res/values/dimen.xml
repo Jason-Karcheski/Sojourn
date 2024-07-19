@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Border -->
-    <dimen name="border_unselected">1dp</dimen>
-    <dimen name="border_selected">2dp</dimen>
+    <!-- Stroke -->
+    <dimen name="stroke_unselected">1dp</dimen>
+    <dimen name="stroke_selected">2dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="radius_medium">8dp</dimen>
 
     <!-- Padding -->
     <dimen name="padding_none">0dp</dimen>
