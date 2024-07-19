@@ -16,7 +16,6 @@ import androidx.compose.foundation.text2.input.TextFieldLineLimits
 import androidx.compose.foundation.text2.input.rememberTextFieldState
 import androidx.compose.foundation.text2.input.textAsFlow
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -124,13 +123,11 @@ fun SojournTextField(
 @Composable
 private fun SojournTextFieldWithContentPreview() {
     SojournTheme {
-        Surface(color = MaterialTheme.sojournColors.background) {
-            SojournTextField(
-                value = "Preview Text Field",
-                placeholder = "Preview Placeholder",
-                onValueChanged = { /* Preview - implementation not required */ }
-            )
-        }
+        SojournTextField(
+            value = "Preview Text Field",
+            placeholder = "Preview Placeholder",
+            onValueChanged = { /* Preview - implementation not required */ }
+        )
     }
 }
 
@@ -138,12 +135,10 @@ private fun SojournTextFieldWithContentPreview() {
 @Composable
 private fun SojournTextFieldWithoutContentPreview() {
     SojournTheme {
-        Surface(color = MaterialTheme.sojournColors.background) {
-            SojournTextField(
-                value = "",
-                placeholder = "Preview Placeholder",
-                onValueChanged = { /* Preview - implementation not required */ }
-            )
-        }
+        SojournTextField(
+            value = "",
+            placeholder = "Preview Placeholder",
+            onValueChanged = { /* Preview - implementation not required */ }
+        )
     }
 }

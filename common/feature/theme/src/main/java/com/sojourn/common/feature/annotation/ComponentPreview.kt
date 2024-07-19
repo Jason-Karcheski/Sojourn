@@ -8,10 +8,14 @@ import androidx.compose.ui.tooling.preview.Preview
  */
 @Preview(
     group = "Light Mode",
-    uiMode = Configuration.UI_MODE_NIGHT_NO
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    showBackground = true,
+    backgroundColor = 0xFFFFFFFF
 )
 @Preview(
     group = "Dark Mode",
-    uiMode = Configuration.UI_MODE_NIGHT_YES
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    backgroundColor = 0xFF000000
 )
-annotation class ComponentPreview()
+annotation class ComponentPreview

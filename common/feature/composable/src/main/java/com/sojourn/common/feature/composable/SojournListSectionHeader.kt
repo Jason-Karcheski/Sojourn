@@ -3,7 +3,6 @@ package com.sojourn.common.feature.composable
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -36,11 +35,9 @@ fun LazyItemScope.sectionHeader(
 @Composable
 private fun SojournListSectionHeaderPreview() {
     SojournTheme {
-        Surface(color = MaterialTheme.sojournColors.background) {
-            LazyColumn {
-                item {
-                    sectionHeader(text = "List Section Header Preview")
-                }
+        LazyColumn {
+            item {
+                sectionHeader(text = "List Section Header Preview")
             }
         }
     }
