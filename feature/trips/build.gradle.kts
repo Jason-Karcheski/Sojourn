@@ -37,7 +37,7 @@ android {
 
 dependencies {
     implementation(projects.common.feature.composable)
-    implementation(projects.domain.trip)
+    implementation(projects.data.trip)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

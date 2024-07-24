@@ -24,7 +24,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "Sojourn"
 include(":app")
-include(":common:feature:theme")
 include(":common:feature:composable")
-include(":domain:trip")
+include(":common:feature:theme")
+include(":data:trip")
 include(":feature:trips")
