@@ -1,12 +1,17 @@
 package com.sojourn.feature.trips.state
 
 import androidx.lifecycle.ViewModel
-import com.sojourn.domain.trip.model.Trip
+import com.sojourn.domain.trip.repository.TripRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import javax.inject.Inject
 
-class TripsScreenViewModel : ViewModel() {
+@HiltViewModel
+class TripsScreenViewModel @Inject constructor(
+    private val tripRepository: TripRepository
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(TripsScreenState())
     val uiState get() =  _uiState.asStateFlow()
@@ -18,14 +23,8 @@ class TripsScreenViewModel : ViewModel() {
     }
 
     private fun getTrips() {
-        // TODO: When use case is available use that instead of dummy data.
-        val dummyTrips = listOf(
-            Trip(name = "Trip One"),
-            Trip(name = "Trip Two")
-        )
-
         _uiState.update { current ->
-            current.copy(trips = dummyTrips)
+            current.copy(trips = tripRepository.getAllTrips())
         }
     }
 

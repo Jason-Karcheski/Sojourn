@@ -21,7 +21,9 @@ import com.sojourn.common.feature.composable.sojournListSection
 import com.sojourn.common.feature.extension.spacedByMedium
 import com.sojourn.common.feature.theme.SojournTheme
 import com.sojourn.common.feature.theme.sojournColors
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

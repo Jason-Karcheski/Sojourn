@@ -1,8 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.sybmol.processor)
 }
 
 android {
@@ -11,7 +13,6 @@ android {
 
     defaultConfig {
         minSdk = 29
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,8 +37,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.common.feature.composable)
-    implementation(projects.data.trip)
+    api(projects.common.feature.composable)
+    api(projects.data.trip)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -48,4 +49,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.hilt)
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    ksp(libs.hilt.compiler)
 }
