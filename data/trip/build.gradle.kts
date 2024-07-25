@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.sybmol.processor)
+    alias(libs.plugins.kotlin.annotation.processor)
 }
 
 android {
@@ -11,7 +11,6 @@ android {
 
     defaultConfig {
         minSdk = 29
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,5 +35,5 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.hilt)
 
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 }

@@ -7,7 +7,8 @@ import com.sojourn.common.data.database.entity.TripEntity
 
 @Database(
     version = 1,
-    entities = [TripEntity::class]
+    entities = [TripEntity::class],
+    exportSchema = false
 )
 abstract class SojournDatabase: RoomDatabase() {
     abstract fun tripDao() : TripDao

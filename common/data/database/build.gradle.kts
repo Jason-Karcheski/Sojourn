@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.sybmol.processor)
+    alias(libs.plugins.kotlin.annotation.processor)
     alias(libs.plugins.hilt)
 }
 
@@ -14,9 +14,9 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    ksp {
-        arg("room.schemaLocation", "$projectDir/schemas")
-    }
+//    ksp {
+//        arg("room.schemaLocation", "$projectDir/schemas")
+//    }
 
     buildTypes {
         release {
@@ -38,6 +38,6 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.hilt)
 
-    ksp(libs.androidx.room.compiler)
-    ksp(libs.hilt.compiler)
+    kapt(libs.androidx.room.compiler)
+    kapt(libs.hilt.compiler)
 }

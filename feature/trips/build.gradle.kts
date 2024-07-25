@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.kotlin.sybmol.processor)
+    alias(libs.plugins.kotlin.annotation.processor)
 }
 
 android {
@@ -50,7 +50,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.hilt)
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.androidx.hilt.navigation.compose)
 
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 }
