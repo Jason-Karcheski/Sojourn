@@ -1,4 +1,4 @@
-package com.sojourn.feature.trips.state
+package com.sojourn.trips.state
 
 import com.sojourn.domain.trip.model.Trip
 

@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    api(projects.common.data.database)
+    api(projects.common.database)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

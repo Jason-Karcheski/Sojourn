@@ -1,4 +1,4 @@
-package com.sojourn.feature.trips.state
+package com.sojourn.trips.state
 
 import androidx.lifecycle.ViewModel
 import com.sojourn.domain.trip.repository.TripRepository

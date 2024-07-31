@@ -49,8 +49,8 @@ android {
 }
 
 dependencies {
-    api(projects.common.feature.composable)
-    api(projects.common.feature.theme)
+    api(projects.common.composable)
+    api(projects.common.theme)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

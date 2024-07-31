@@ -1,18 +1,16 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.kotlin.annotation.processor)
 }
 
 android {
-    namespace = "com.sojourn.trips"
+    namespace = "com.sojourn.common.composable"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 29
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,20 +35,21 @@ android {
 }
 
 dependencies {
-    api(projects.common.composable)
-    api(projects.data.trip)
+    implementation(projects.common.theme)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.navigation.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.hilt)
-    implementation(libs.androidx.hilt.navigation.compose)
 
-    kapt(libs.hilt.compiler)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }

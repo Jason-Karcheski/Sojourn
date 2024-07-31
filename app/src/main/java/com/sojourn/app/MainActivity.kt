@@ -16,11 +16,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import com.sojourn.common.feature.composable.SojournTopBar
-import com.sojourn.common.feature.composable.sojournListSection
-import com.sojourn.common.feature.extension.spacedByMedium
-import com.sojourn.common.feature.theme.SojournTheme
-import com.sojourn.common.feature.theme.sojournColors
+import com.sojourn.common.composable.SojournTopBar
+import com.sojourn.common.composable.sojournListSection
+import com.sojourn.common.extension.spacedByMedium
+import com.sojourn.common.theme.SojournTheme
+import com.sojourn.common.theme.sojournColors
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier
                                 .padding(innerPadding)
                                 .fillMaxSize(),
-                            contentPadding = PaddingValues(horizontal = dimensionResource(com.sojourn.common.feature.theme.R.dimen.padding_medium)),
+                            contentPadding = PaddingValues(horizontal = dimensionResource(com.sojourn.common.theme.R.dimen.padding_medium)),
                             state = listState,
                             verticalArrangement = Arrangement.spacedByMedium()
                         ) {

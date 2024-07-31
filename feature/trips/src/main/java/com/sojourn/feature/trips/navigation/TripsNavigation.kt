@@ -1,10 +1,10 @@
-package com.sojourn.feature.trips.navigation
+package com.sojourn.trips.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.sojourn.feature.trips.TripsRoute
+import com.sojourn.trips.TripsRoute
 
 fun NavHostController.navigateToTrips(options: NavOptions? = null) {
     this.navigate(
