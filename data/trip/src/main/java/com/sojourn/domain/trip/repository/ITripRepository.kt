@@ -1,13 +1,13 @@
 package com.sojourn.domain.trip.repository
 
-import com.sojourn.domain.trip.model.Trip
+import com.sojourn.common.data.database.entity.TripEntity
 
 interface ITripRepository {
 
-    fun getAllTrips() : List<Trip>
+    fun getAllTrips() : List<TripEntity>
 
-    fun saveTrip(trip: Trip)
+    fun saveTrip(trip: TripEntity)
 
-    fun deleteTrip(trip: Trip)
+    fun deleteTrip(trip: TripEntity)
 
 }

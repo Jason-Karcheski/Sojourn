@@ -4,9 +4,12 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material3.Icon
@@ -49,7 +52,12 @@ fun SojournTopBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .heightIn(min = 64.dp)
-                .padding(dimensionResource(R.dimen.padding_small)),
+                .padding(
+                    start = dimensionResource(R.dimen.padding_small),
+                    end = dimensionResource(R.dimen.padding_small),
+                    bottom = dimensionResource(R.dimen.padding_small),
+                )
+                .windowInsetsPadding(WindowInsets.statusBars),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBySmall()
         ) {
