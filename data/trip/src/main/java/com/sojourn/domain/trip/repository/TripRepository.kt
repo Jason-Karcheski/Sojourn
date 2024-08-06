@@ -8,13 +8,13 @@ class TripRepository @Inject constructor(
     private val tripDao: TripDao
 ) : ITripRepository {
 
-    override fun getAllTrips(): List<TripEntity> = tripDao.getAll()
+    override suspend fun getAllTrips(): List<TripEntity> = tripDao.getAll()
 
-    override fun saveTrip(trip: TripEntity) {
+    override suspend fun saveTrip(trip: TripEntity) {
         tripDao.upsertTrip(trip)
     }
 
-    override fun deleteTrip(trip: TripEntity) {
+    override suspend fun deleteTrip(trip: TripEntity) {
         tripDao.deleteTrip(trip)
     }
 

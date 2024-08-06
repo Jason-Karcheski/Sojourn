@@ -4,10 +4,10 @@ import com.sojourn.common.data.database.entity.TripEntity
 
 interface ITripRepository {
 
-    fun getAllTrips() : List<TripEntity>
+    suspend fun getAllTrips() : List<TripEntity>
 
-    fun saveTrip(trip: TripEntity)
+    suspend fun saveTrip(trip: TripEntity)
 
-    fun deleteTrip(trip: TripEntity)
+    suspend fun deleteTrip(trip: TripEntity)
 
 }

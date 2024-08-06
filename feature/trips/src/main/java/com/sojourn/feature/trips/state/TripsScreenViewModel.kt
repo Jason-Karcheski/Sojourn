@@ -6,6 +6,7 @@ import com.sojourn.domain.trip.Resource
 import com.sojourn.domain.trip.usecase.GetAllTripsUseCase
 import com.sojourn.trips.state.TripsScreenEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TripsScreenViewModel @Inject constructor(
-    private val getAllTripsUseCase: GetAllTripsUseCase
+    private val getAllTripsUseCase: GetAllTripsUseCase,
+    private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(TripsScreenState())
@@ -27,7 +29,7 @@ class TripsScreenViewModel @Inject constructor(
     }
 
     private fun getTrips() {
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcher) {
             getAllTripsUseCase().collect { status ->
                 _uiState.update { current ->
                     when (status) {

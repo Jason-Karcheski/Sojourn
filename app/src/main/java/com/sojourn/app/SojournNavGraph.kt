@@ -1,9 +1,14 @@
 package com.sojourn.app
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDestination.Companion.hasRoute
@@ -18,10 +23,16 @@ import com.sojourn.trips.navigation.TripsDestination
 internal fun SojournNavGraph() {
     val controller = rememberNavController()
     val currentBackStackEntry by controller.currentBackStackEntryAsState()
+    var isTopBarCollapsed by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
-            currentBackStackEntry?.let { DynamicTopBar(currentRoute = it) }
+            currentBackStackEntry?.let {
+                DynamicTopBar(
+                    currentRoute = it,
+                    isCollapsed = isTopBarCollapsed
+                )
+            }
         }
     ) { innerPadding ->
         NavHost(
@@ -29,20 +40,24 @@ internal fun SojournNavGraph() {
             navController = controller,
             startDestination = TripsDestination.Trips
         ) {
-            trips()
+            trips(shouldCollapseTopBar = { isCollapsed -> isTopBarCollapsed = isCollapsed })
         }
     }
 }
 
 @Composable
-private fun DynamicTopBar(currentRoute: NavBackStackEntry) {
+private fun DynamicTopBar(
+    currentRoute: NavBackStackEntry,
+    isCollapsed: Boolean
+) {
     val destination = currentRoute.destination
 
     when {
         destination.hasRoute<TripsDestination.Trips>() -> {
             SojournTopBar(
                 title = "Trips",
-                onBackPressed = {}
+                isCollapsed = isCollapsed,
+                actionConfig = Icons.Rounded.Add to {}
             )
         }
     }

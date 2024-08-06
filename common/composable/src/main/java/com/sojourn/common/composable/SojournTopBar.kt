@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -20,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -36,6 +38,7 @@ import com.sojourn.common.theme.sojournColors
  * @param title The title of the [SojournTopBar].
  * @param subtitle An optional subtitle value - shown when the [SojournTopBar] collapses as the user scrolls.
  * @param onBackPressed A callback method that is triggered when the user navigates back using this [SojournTopBar] composable.
+ * @param actionConfig An optional [Pair] that defines the icon and callback of the top bar action. `null` by default.
  * @param isCollapsed A [Boolean] flag that sets the collapsed/expanded state of the [SojournTopBar].
  */
 @Composable
@@ -43,6 +46,7 @@ fun SojournTopBar(
     title: String,
     subtitle: String? = null,
     onBackPressed: (() -> Unit)? = null,
+    actionConfig: Pair<ImageVector, () -> Unit>? = null,
     isCollapsed: Boolean = true
 ) {
     val headingMaxLines = 1
@@ -93,6 +97,20 @@ fun SojournTopBar(
                             style = MaterialTheme.typography.labelMedium
                         )
                     }
+                }
+            }
+
+            actionConfig?.let { (icon, callback) ->
+                Spacer(modifier = Modifier.weight(1f))
+                
+                IconButton(
+                    modifier = Modifier.semantics { contentDescription = "Top bar action button" },
+                    onClick = callback
+                ) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null
+                    )
                 }
             }
         }

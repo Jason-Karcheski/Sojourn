@@ -14,8 +14,8 @@ fun NavHostController.navigateToTrips(options: NavOptions? = null) {
     )
 }
 
-fun NavGraphBuilder.trips() {
+fun NavGraphBuilder.trips(shouldCollapseTopBar: (Boolean) -> Unit) {
     composable<TripsDestination.Trips> {
-        TripsRoute()
+        TripsRoute(onScrollEnded = shouldCollapseTopBar)
     }
 }

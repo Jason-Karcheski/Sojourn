@@ -12,7 +12,7 @@ import javax.inject.Inject
 class GetAllTripsUseCase @Inject constructor(
     private val tripRepository: ITripRepository
 ) {
-    operator fun invoke() : Flow<Resource<List<Trip>>> = flow {
+    suspend operator fun invoke() : Flow<Resource<List<Trip>>> = flow {
         emit(Resource.Loading())
 
         val trips = tripRepository
