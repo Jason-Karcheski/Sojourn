@@ -47,7 +47,7 @@ fun SojournTopBar(
     subtitle: String? = null,
     onBackPressed: (() -> Unit)? = null,
     actionConfig: Pair<ImageVector, () -> Unit>? = null,
-    isCollapsed: Boolean = true
+    isCollapsed: Boolean = false,
 ) {
     val headingMaxLines = 1
 
@@ -174,4 +174,3 @@ private fun SojournTopBarCollapsedPreview() {
         }
     }
 }
-

@@ -1,4 +1,4 @@
-package com.sojourn.trips.navigation
+package com.sojourn.feature.trips.navigation
 
 import kotlinx.serialization.Serializable
 

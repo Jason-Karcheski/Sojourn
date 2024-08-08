@@ -51,6 +51,7 @@ android {
 dependencies {
     api(projects.common.composable)
     api(projects.common.theme)
+    api(projects.feature.create)
     api(projects.feature.trips)
 
     implementation(libs.androidx.core.ktx)

@@ -10,29 +10,29 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sojourn.common.composable.SojournTopBar
+import com.sojourn.feature.create.navigation.CreateDestination
+import com.sojourn.feature.create.navigation.create
+import com.sojourn.feature.create.navigation.navigateToCreate
+import com.sojourn.feature.trips.navigation.TripsDestination
 import com.sojourn.feature.trips.navigation.trips
-import com.sojourn.trips.navigation.TripsDestination
 
 @Composable
 internal fun SojournNavGraph() {
     val controller = rememberNavController()
-    val currentBackStackEntry by controller.currentBackStackEntryAsState()
     var isTopBarCollapsed by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
-            currentBackStackEntry?.let {
-                DynamicTopBar(
-                    currentRoute = it,
-                    isCollapsed = isTopBarCollapsed
-                )
-            }
+            DynamicTopBar(
+                controller = controller,
+                isCollapsed = isTopBarCollapsed
+            )
         }
     ) { innerPadding ->
         NavHost(
@@ -40,6 +40,8 @@ internal fun SojournNavGraph() {
             navController = controller,
             startDestination = TripsDestination.Trips
         ) {
+            create()
+
             trips(shouldCollapseTopBar = { isCollapsed -> isTopBarCollapsed = isCollapsed })
         }
     }
@@ -47,18 +49,28 @@ internal fun SojournNavGraph() {
 
 @Composable
 private fun DynamicTopBar(
-    currentRoute: NavBackStackEntry,
+    controller: NavHostController,
     isCollapsed: Boolean
 ) {
-    val destination = currentRoute.destination
+    val currentBackStackEntry by controller.currentBackStackEntryAsState()
+    val destination = currentBackStackEntry?.destination
 
-    when {
-        destination.hasRoute<TripsDestination.Trips>() -> {
-            SojournTopBar(
-                title = "Trips",
-                isCollapsed = isCollapsed,
-                actionConfig = Icons.Rounded.Add to {}
-            )
+    destination?.let {
+        when {
+            destination.hasRoute<CreateDestination.Create>() -> {
+                SojournTopBar(
+                    title = "Create",
+                    isCollapsed = false,
+                    onBackPressed = { controller.navigateUp() }
+                )
+            }
+            destination.hasRoute<TripsDestination.Trips>() -> {
+                SojournTopBar(
+                    title = "Trips",
+                    isCollapsed = isCollapsed,
+                    actionConfig = Icons.Rounded.Add to { controller.navigateToCreate() }
+                )
+            }
         }
     }
 }
